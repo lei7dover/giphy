@@ -1,1 +1,3 @@
-$('container-gifs').prepend(<%=j render partial: 'gif_form' %>)
+$('#new_giphy').modal('toggle');
+document.getElementById("new_gif").reset();
+$('#gifs_list').prepend("<%=j render partial: 'gifs/gif' , locals: {gif: @gif}%>");
