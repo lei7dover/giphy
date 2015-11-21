@@ -1,3 +1,7 @@
 $('#new_giphy').modal('toggle');
 document.getElementById("new_gif").reset();
-$('#gifs_list').prepend("<%=j render partial: 'gifs/gif' , locals: {gif: @gif}%>");
+$('#gifs_list').html("<%=j render partial:'gifs/gif_container', locals: {gif: @gif}%>");
+
+
+$('#new_user').modal('toggle');
+document.getElementById("new_user").reset();

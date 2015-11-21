@@ -11,13 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119180303) do
+ActiveRecord::Schema.define(version: 20151120183000) do
 
   create_table "gifs", force: :cascade do |t|
     t.text     "url"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "login",                           null: false
+    t.string   "email",                           null: false
+    t.string   "crypted_password",                null: false
+    t.string   "password_salt",                   null: false
+    t.string   "persistence_token",               null: false
+    t.string   "single_access_token",             null: false
+    t.string   "perishable_token",                null: false
+    t.integer  "login_count",         default: 0, null: false
+    t.integer  "failed_login_count",  default: 0, null: false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end
