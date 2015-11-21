@@ -2,6 +2,10 @@ class UsersController < ApplicationController
  before_filter :require_no_user, :only => [:new, :create]
  before_filter :require_user, :only => [:show, :edit, :update]
 
+ def index
+   @users=User.all
+ end
+
  def new
    @user = User.new
  end
@@ -11,9 +15,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.js { render :show, status: :created, location: @user }
+        format.js { render root_path, status: :created, location: @user ,notice: "User signed in"}
       else
-        format.html { render :new }
+        format.html { redirect_to root_path }
         format.js { render js: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -31,10 +35,10 @@ class UsersController < ApplicationController
  @user = @current_user # makes our views "cleaner" and more consistent
    respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to account_url, notice: 'User was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'User was successfully updated.' }
         format.js { render :show, status: :ok, location: @user }
       else
-        format.html { render :edit }
+        format.html { redirect_to root_path }
         format.js { render js: @user.errors, status: :unprocessable_entity }
       end
     end
