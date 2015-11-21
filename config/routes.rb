@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   resources :gifs
+  resources :user_session
+  resources :users
+  resource :account, :controller => "users"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

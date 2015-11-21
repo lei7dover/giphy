@@ -1,19 +1,21 @@
 <div class = "page-header ">
   <h1> Check out some cool Giphy's!</h1>
   <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#new_giphy">
-  New Giphy
-</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#new_giphy">New Giphy</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#new_user">Create an Account</button>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sign_in">Sign In</button>
 </div>
 
 <!-- Button trigger modal -->
-<div class= "container-gifs" id= "gifs_list">
+<!--<div class= "container-gifs" id= "gifs_list">
   <% @gifs.each_slice(4) do |row| %>
     <div class = "row">
         <%= render :partial => "gif", :collection => row %>
     </div>
 <% end %>
+</div>-->
 
+<%= render :partial => "gif_container" %>
 
 
   <!-- Modal -->
@@ -22,10 +24,39 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Gif</h4>
       </div>
       <div class="modal-body">
         <%= render partial: 'gifs/gif_form'%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'users/form' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="sign_in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'users/form' %>
       </div>
     </div>
   </div>

@@ -1,0 +1,9 @@
+<%= bootstrap_form_for @user do |f| %>
+<%= f.label :username %>
+<%= f.text_field :login, skip_label: true, :placeholder => "Type your username..." %><br />
+<br />
+<%= f.password_field :password, :placeholder => "Type your password..." %><br />
+<br />
+<%= f.password_field :password_confirmation, :placeholder => "Please re-type your password..." %><br />
+<%= f.submit "Register" %>
+<% end %>
