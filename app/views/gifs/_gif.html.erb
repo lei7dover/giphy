@@ -13,7 +13,7 @@
       <div class="modal-body">
         <p><%=link_to image_tag(gif.url, class:"img-responsive"), "#{gif.url}" %></p>
         <p>Copy Link: <%= link_to "#{gif.url}", "#{gif.url}"%></p>
-        <p>Uploaded on: <%= gif.created_at.to_formatted_s(:long) %></p>
+        <p>Uploaded on: <%= gif.created_at.to_formatted_s(:long) %> Uploaded by: <%= gif.user.login %> </p>
         <p><%= link_to '<span class="glyphicon glyphicon-thumbs-up"></span>'.html_safe,"#"%>    <%= link_to '<span class="glyphicon glyphicon-thumbs-down"></span>'.html_safe,"#"%></p>
       </div>
       <div class="modal-footer">
