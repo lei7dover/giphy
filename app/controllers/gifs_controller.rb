@@ -3,11 +3,11 @@ class GifsController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update]
 
   def index
-    @gifs=Gif.all
+    @gifs=Gif.all.order("votes_count DESC")
     @gif= Gif.new
     @user=User.new
     @user_session=UserSession.new
-
+    @vote = Vote.new(params[:vote])
   end
 
   def create
@@ -20,7 +20,7 @@ class GifsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js {render :js => @gif.errors}
+        format.js {render 'errors'}
       end
     end
   end
@@ -29,6 +29,9 @@ class GifsController < ApplicationController
     @gif=Gif.new
   end
 
+  def show
+   @vote = Vote.new(params[:vote])
+  end
   private
 
   def set_gif

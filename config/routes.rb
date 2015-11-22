@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :votes
   resources :gifs
   resources :user_sessions
   resources :users
