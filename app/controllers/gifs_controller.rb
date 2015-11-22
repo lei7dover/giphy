@@ -20,7 +20,7 @@ class GifsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js {flash[:alert]= "Sorry, Your gif didn't save!"}
+        format.js {render :js => @gif.errors}
       end
     end
   end
