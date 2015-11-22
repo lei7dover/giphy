@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
  before_filter :require_no_user, :only => [:new, :create]
  before_filter :require_user, :only => [:show, :edit, :update]
+ before_filter :set_user, only: [:show, :edit, :update]
 
  def index
    @users=User.all
@@ -15,10 +16,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.js { render root_path, status: :created, location: @user ,notice: "User signed in"}
+        format.json { render root_path, status: :created, location: @user ,notice: "User signed in"}
       else
         format.html { redirect_to root_path }
-        format.js { render js: @user.errors, status: :unprocessable_entity }
+        format.json { render js: @user.errors, status: :unprocessable_entity }
       end
     end
  end
@@ -36,10 +37,10 @@ class UsersController < ApplicationController
    respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
-        format.js { render :show, status: :ok, location: @user }
+        format.json { render :show, status: :ok, location: @user }
       else
         format.html { redirect_to root_path }
-        format.js { render js: @user.errors, status: :unprocessable_entity }
+        format.json { render js: @user.errors, status: :unprocessable_entity }
       end
     end
  end

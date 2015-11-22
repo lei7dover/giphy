@@ -3,15 +3,6 @@
   <!-- Button trigger modal -->
 </div>
 
-<!-- Button trigger modal -->
-<!--<div class= "container-gifs" id= "gifs_list">
-  <% @gifs.each_slice(4) do |row| %>
-    <div class = "row">
-        <%= render :partial => "gif", :collection => row %>
-    </div>
-<% end %>
-</div>-->
-
 <%= render :partial => "gif_container" %>
 
 
@@ -23,7 +14,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Gif</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id = "gif_form">
         <%= render partial: 'gifs/gif_form'%>
       </div>
     </div>

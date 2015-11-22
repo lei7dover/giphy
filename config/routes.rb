@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :votes
   resources :gifs
-  resources :user_session
+  resources :user_sessions
   resources :users
   resource :account, :controller => "users"
   # The priority is based upon order of creation: first created -> highest priority.

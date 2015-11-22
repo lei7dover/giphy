@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120183000) do
+ActiveRecord::Schema.define(version: 20151122132619) do
 
   create_table "gifs", force: :cascade do |t|
     t.text     "url"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "votes_count"
   end
 
   create_table "user_sessions", force: :cascade do |t|
@@ -42,6 +43,12 @@ ActiveRecord::Schema.define(version: 20151120183000) do
     t.string   "last_login_ip"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "gif_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
