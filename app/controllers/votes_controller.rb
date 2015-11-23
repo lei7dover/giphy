@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_action :set_vote, only: [:show, :edit, :update, :destroy]
+  #before_action :set_vote, only: [:show, :edit, :update, :destroy]
 
   # GET /votes
   # GET /votes.json
@@ -25,28 +25,35 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(vote_params)
-
+  @vote = Vote.new(vote_params)
+  @gif=Gif.find(@vote.gif_id)
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote }
+        format.js { }
       else
-        format.html { render :new }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end
 
   def destroy
-    @vote.destroy
+    @gif=Gif.find(params[:id])
+    #@gif.votes_count=@gif.votes_count - 1
+    unless @gif.votes.empty?
+      @gif.votes.first.destroy
+    end
+    respond_to do |format|
+        if @gif.save
+          format.js{}
+        end
+      end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_vote
-      @vote = Vote.find(params[:id])
-    end
+    #def set_vote
+      #@vote = Vote.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vote_params
