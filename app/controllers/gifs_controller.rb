@@ -7,7 +7,7 @@ class GifsController < ApplicationController
     @gif= Gif.new
     @user=User.new
     @user_session=UserSession.new
-    @vote = Vote.new(params[:vote])
+    @vote = Vote.new
   end
 
   def create
