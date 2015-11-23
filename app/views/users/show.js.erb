@@ -1,0 +1,4 @@
+$('.modal').modal('hide');
+$('.modal').on('hidden.bs.modal', function(e) {
+  $('#gifs_list').replaceWith("<%=j render :partial => 'gifs/gif_container' %>");
+});

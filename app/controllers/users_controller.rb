@@ -25,7 +25,9 @@ class UsersController < ApplicationController
  end
 
  def show
-   @user = @current_user
+   @user=User.find(params[:id])
+   @gifs=@user.gifs.order("votes_count DESC")
+   @vote=Vote.new
  end
 
  def edit

@@ -18,7 +18,7 @@
             <p>Uploaded on: <%= gif.created_at.to_formatted_s(:long) %> </p>
           </div>
           <div class= "col-xs-4">
-            <p>Uploaded by: <%=link_to "#{gif.user.login}", "#{gif.user.login}" , remote: true %> </p>
+            <p>Uploaded by: <%=link_to "#{gif.user.login}", gif.user , remote: true %> </p>
           </div>
           <div class="voting col-xs-12">
             <div class= "col-xs-4 col-xs-offset-2">
@@ -30,7 +30,7 @@
                 </p>
             </div>
             <div class="col-xs-2">
-            <span class="votes_count"><%= gif.votes_count %></span>
+              <span class="votes_count"><%= gif.votes_count %></span>
           </div>
             <div class= "col-xs-4">
               <p> <%=link_to '<span class= "btn btn-default glyphicon glyphicon-thumbs-down"></span>'.html_safe, vote_path(gif), method: :delete, remote: true %></p>

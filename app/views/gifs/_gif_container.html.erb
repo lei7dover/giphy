@@ -1,7 +1,7 @@
 <div class= "container-gifs" id= "gifs_list">
   <% @gifs.each_slice(4) do |row| %>
     <div class = "row">
-        <%= render :partial => "gif", :collection => row %>
+        <%= render :partial => "gifs/gif", :collection => row %>
     </div>
 <% end %>
 </div>
