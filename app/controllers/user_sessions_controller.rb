@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       respond_to do |format|
-        format.js {}
+        format.js { }
       end
     else
       respond_to do |format|

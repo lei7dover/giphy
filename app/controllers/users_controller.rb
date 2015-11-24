@@ -20,7 +20,6 @@ class UsersController < ApplicationController
      end
    else
      respond_to do |format|
-       format.html { redirect_to root_path }
        format.js {render 'errors'}
      end
    end
@@ -56,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:login, :password, :password_confirmation, :email)
+    params.require(:user).permit(:email,:login, :password, :password_confirmation)
   end
 
 end
