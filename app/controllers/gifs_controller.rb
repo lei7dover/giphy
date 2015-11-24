@@ -13,6 +13,7 @@ class GifsController < ApplicationController
   def create
     @gif=Gif.new(gif_params)
     @gif.user=current_user
+    @vote=Vote.new
     if @gif.save
       @gifs=Gif.all.rotate(-1)
       respond_to do |format|
@@ -20,7 +21,7 @@ class GifsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js {render 'errors'}
+        format.js {render template: 'errors'}
       end
     end
   end
