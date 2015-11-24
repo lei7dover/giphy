@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  before_action :require_no_user, only:[:new, :create]
+  #before_action :require_no_user, only:[:new, :create]
   before_action :require_user, only:[:destroy]
 
   def new
@@ -9,10 +9,13 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      flash[:alert]= "Login Sucessful!"
-      redirect_to root_url
+      respond_to do |format|
+        format.js {}
+      end
     else
-      render :action => :new
+      respond_to do |format|
+          format.js {render 'errors'}
+        end
     end
   end
 
