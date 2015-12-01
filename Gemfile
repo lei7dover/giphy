@@ -12,6 +12,8 @@ gem 'sass-rails', '~> 5.0'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem 'remotipart', '~> 1.2'
+gem 'refile-postgres'
+gem 'pg'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -40,7 +42,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -52,6 +53,5 @@ group :development do
 end
 
   group :production do
-    gem 'pg'
     gem 'rails_12factor'
   end
