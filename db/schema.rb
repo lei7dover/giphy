@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130210748) do
+ActiveRecord::Schema.define(version: 20151201201119) do
 
   create_table "gifs", force: :cascade do |t|
     t.text     "url"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20151130210748) do
     t.integer  "votes_count",  default: 0
     t.string   "gif_image_id"
   end
+
+  create_table "refile_attachments", force: :cascade do |t|
+    t.string "namespace", null: false
+  end
+
+  add_index "refile_attachments", ["namespace"], name: "index_refile_attachments_on_namespace"
 
   create_table "user_sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
