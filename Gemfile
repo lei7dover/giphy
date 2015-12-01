@@ -9,6 +9,9 @@ gem 'rails', '4.2.4'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form'
 gem 'sass-rails', '~> 5.0'
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem 'remotipart', '~> 1.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

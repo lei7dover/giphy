@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(@gif, remote: true) do |f| %>
+<%= bootstrap_form_for(@gif, remote: true,  authenticity_token: true) do |f| %>
 <% if @gif.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@gif.errors.count, "error") %> prohibited this gif from being saved:</h2>
@@ -11,5 +11,6 @@
   </div>
 <% end %>
   <%= f.url_field :url %>
+  <%= f.attachment_field :gif_image, direct: true %>
   <%= f.submit "Save" %>
 <% end %>

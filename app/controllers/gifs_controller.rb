@@ -14,7 +14,7 @@ class GifsController < ApplicationController
     @gif=Gif.new(gif_params)
     @gif.user=current_user
     @vote=Vote.new
-    if @gif.save
+    if @gif.save!
       @gifs=Gif.all.rotate(-1)
       respond_to do |format|
         format.js
@@ -44,7 +44,7 @@ class GifsController < ApplicationController
   end
 
   def gif_params
-    params.require(:gif).permit(:url,:user_id)
+    params.require(:gif).permit(:url,:user_id, :gif_image)
   end
 
 end
