@@ -1,6 +1,6 @@
 
   <div class="col-xs-3 added_gif" id="gif-<%=gif.id%>" >
-    <%= link_to image_tag(gif.url, class: "img-responsive"), "#","data-toggle"=>"modal", "data-target"=>"#gif_modal-#{gif.id}" %>
+    <%= link_to image_tag(gif.specific_image_url, class: "img-responsive"), "#","data-toggle"=>"modal", "data-target"=>"#gif_modal-#{gif.id}" %>
     <p class = "votes"><%=pluralize(gif.votes_count, "vote") %> </p>
   </div>
 
@@ -13,7 +13,7 @@
       </div>
       <div class="modal-body">
         <p><%=link_to image_tag(gif.specific_image_url, class:"img-responsive"), "#{gif.specific_image_url}" %></p>
-        <p>Copy Link: <%= link_to "#{gif.url}", "#{gif.url}"%></p>
+        <p>Copy Link: <%= link_to "#{gif.specific_image_url}", "#{gif.specific_image_url}"%></p>
           <div class="col-xs-8">
             <p>Uploaded on: <%= gif.created_at.to_formatted_s(:long) %> </p>
           </div>
