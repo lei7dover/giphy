@@ -15,7 +15,7 @@
         <p><%=link_to image_tag(gif.specific_image_url, class:"img-responsive"), "#{gif.specific_image_url}" %></p>
         <p>Copy Link: <%= link_to "#{gif.specific_image_url}", "#{gif.specific_image_url}"%></p>
           <div class="col-xs-8">
-            <p>Uploaded on: <%= gif.created_at.to_formatted_s(:long) %> </p>
+            <p>Uploaded on:   <%= gif.created_at.to_formatted_s(:long) %> </p>
           </div>
           <div class= "col-xs-4">
             <p>Uploaded by: <%=link_to "#{gif.user.login}", gif.user , remote: true %> </p>
